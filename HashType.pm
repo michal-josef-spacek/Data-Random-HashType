@@ -1,4 +1,4 @@
-package Data::Generate::HashType;
+package Data::Random::HashType;
 
 use strict;
 use warnings;
@@ -38,7 +38,7 @@ sub new {
 	return $self;
 }
 
-sub generate {
+sub random {
 	my $self = shift;
 
 	my @ret;

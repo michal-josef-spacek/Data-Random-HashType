@@ -17,9 +17,9 @@ Makefile.PL
 MANIFEST			This list of files
 META.yml
 README
-t/Data-Generate-HashType/01-use.t
-t/Data-Generate-HashType/02-version.t
-t/Data-Generate-HashType/03-new.t
-t/Data-Generate-HashType/04-generate.t
-xt/Data-Generate-HashType/01-pod_coverage.t
-xt/Data-Generate-HashType/02-pod.t
+t/Data-Random-HashType/01-use.t
+t/Data-Random-HashType/02-version.t
+t/Data-Random-HashType/03-new.t
+t/Data-Random-HashType/04-random.t
+xt/Data-Random-HashType/01-pod_coverage.t
+xt/Data-Random-HashType/02-pod.t

@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('Data::Generate::HashType');
+	use_ok('Data::Random::HashType');
 }
 
 # Test.
-require_ok('Data::Generate::HashType');
+require_ok('Data::Random::HashType');
