@@ -7,8 +7,8 @@ use Class::Utils qw(set_params);
 use Data::HashType;
 use Readonly;
 
-Readonly::Array our @OBSOLETE_HASH_TYPES => qw(md5 sha1);
-Readonly::Array our @DEFAULT_HASH_TYPES => qw(sha256 sha384 sha512);
+Readonly::Array our @OBSOLETE_HASH_TYPES => qw(MD4 MD5 SHA1);
+Readonly::Array our @DEFAULT_HASH_TYPES => qw(SHA-256 SHA-384 SHA-512);
 Readonly::Array our @ALL_HASH_TYPES => (@OBSOLETE_HASH_TYPES, @DEFAULT_HASH_TYPES);
 
 our $VERSION = 0.01;
