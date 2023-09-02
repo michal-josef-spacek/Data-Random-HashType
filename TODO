@@ -1,7 +1,8 @@
 TODO
 ====
 2. Add checks in constructor.
-4.
+4. Add cb_id parameter for callback to generating of ids.
+5.
 
 Applied
 =======
