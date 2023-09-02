@@ -31,7 +31,7 @@ $obj = Data::Random::HashType->new(
 	'possible_hash_types' => ['sha256', 'sha512'],
 );
 my @ret = $obj->random;
-is(scalar @ret, 2, 'Number of randomd hash types (2).');
+is(scalar @ret, 2, 'Number of random hash types (2).');
 isa_ok($ret[0], 'Data::HashType');
 isa_ok($ret[1], 'Data::HashType');
 
@@ -41,7 +41,7 @@ $obj = Data::Random::HashType->new(
 	'possible_hash_types' => ['sha256', 'sha512'],
 );
 @ret = $obj->random;
-is(scalar @ret, 1, 'Number of randomd hash types (1).');
+is(scalar @ret, 1, 'Number of random hash types (1).');
 isa_ok($ret[0], 'Data::HashType');
 
 # Test.
@@ -51,5 +51,5 @@ $obj = Data::Random::HashType->new(
 	'possible_hash_types' => ['sha256', 'sha512'],
 );
 @ret = $obj->random;
-is(scalar @ret, 1, 'Number of randomd hash types (1).');
+is(scalar @ret, 1, 'Number of random hash types (1).');
 isa_ok($ret[0], 'Data::HashType');
