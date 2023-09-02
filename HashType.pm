@@ -24,7 +24,7 @@ sub new {
 	$self->{'mode_id'} = 0;
 
 	# Number of hash types.
-	$self->{'num_generated'} = undef;
+	$self->{'num_generated'} = 1;
 
 	# Hash types.
 	$self->{'possible_hash_types'} = \@DEFAULT_HASH_TYPES;
@@ -51,8 +51,7 @@ sub random {
 	my $self = shift;
 
 	my @ret;
-	if (defined $self->{'num_generated'}
-		&& $self->{'num_generated'} < @{$self->{'possible_hash_types'}}) {
+	if ($self->{'num_generated'} < @{$self->{'possible_hash_types'}}) {
 
 		my @list = @{$self->{'possible_hash_types'}};
 		foreach my $id (1 .. $self->{'num_generated'}) {
