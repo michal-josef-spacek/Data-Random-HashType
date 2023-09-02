@@ -28,6 +28,7 @@ is($ret->name, 'sha256', 'Get name of hash type (sha256).');
 
 # Test.
 $obj = Data::Random::HashType->new(
+	'num_generated' => 2,
 	'possible_hash_types' => ['sha256', 'sha512'],
 );
 my @ret = $obj->random;
