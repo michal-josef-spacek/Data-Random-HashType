@@ -1,5 +1,6 @@
 Changes
 CONCEPT
+examples/random_hash_type.pl
 HashType.pm
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
