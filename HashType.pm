@@ -5,6 +5,7 @@ use warnings;
 
 use Class::Utils qw(set_params);
 use Data::HashType;
+use Error::Pure qw(err);
 use Readonly;
 
 Readonly::Array our @OBSOLETE_HASH_TYPES => qw(MD4 MD5 SHA1);
@@ -33,7 +34,15 @@ sub new {
 
 	# TODO Check mode_id.
 	# TODO Check num_generated.
-	# TODO Check possible hash types.
+	if (! defined $self->{'num_generated'}) {
+		err "Parameter 'num_generated' is required.";
+	}
+	if (ref $self->{'possible_hash_types'} ne 'ARRAY') {
+		err "Parameter 'possible_hash_types' must be a reference to array.";
+	}
+	if (! @{$self->{'possible_hash_types'}}) {
+		err "Parameter 'possible_hash_types' must contain at least one hash type name.";
+	}
 
 	return $self;
 }
