@@ -13,6 +13,18 @@ METHODS
 
     Constructor.
 
+    *       "cb_id"
+
+            Callback to adding of id.
+
+            Default value is subroutine which returns "$self-"{'id'}++>.
+
+    *       "id"
+
+            Minimal id for adding. Only if "mode_id" is set to 1.
+
+            Default value is 1.
+
     *       "mode_id"
 
             Boolean value if we are generating id in hash type object.

@@ -21,6 +21,12 @@ sub new {
 	# Create object.
 	my $self = bless {}, $class;
 
+	# Id.
+	$self->{'id'} = 1;
+	$self->{'cb_id'} = sub {
+		return $self->{'id'}++;
+	};
+
 	# Add id or not.
 	$self->{'mode_id'} = 0;
 
@@ -59,7 +65,9 @@ sub random {
 			my $rand = int(rand(scalar @list - 1));
 			my $hash_type = splice @list, $rand, 1;
 			push @ret, Data::HashType->new(
-				$self->{'mode_id'} ? ('id' => $id) : (),
+				$self->{'mode_id'} ? (
+					'id' => $self->{'cb_id'}->($self),
+				) : (),
 				'active' => 1,
 				'name' => $hash_type,
 			);
@@ -68,7 +76,9 @@ sub random {
 		my $i = 1;
 		foreach my $hash_type (@{$self->{'possible_hash_types'}}) {
 			push @ret, Data::HashType->new(
-				$self->{'mode_id'} ? ('id' => $i) : (),
+				$self->{'mode_id'} ? (
+					'id' => $self->{'cb_id'}->($self),
+				) : (),
 				'active' => 1,
 				'name' => $hash_type,
 			);
@@ -107,6 +117,18 @@ Data::Random::HashType - Random hash type objects.
 Constructor.
 
 =over 8
+
+=item * C<cb_id>
+
+Callback to adding of id.
+
+Default value is subroutine which returns C<$self->{'id'}++>.
+
+=item * C<id>
+
+Minimal id for adding. Only if C<mode_id> is set to 1.
+
+Default value is 1.
 
 =item * C<mode_id>
 

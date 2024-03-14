@@ -1,6 +1,5 @@
 TODO
 ====
-4. Add cb_id parameter for callback to generating of ids.
 5.
 
 Applied
@@ -12,4 +11,7 @@ OK [20230902] skim
 OK [20230902] skim
 
 2. Add checks in constructor.
+OK [20240314] skim
+
+4. Add cb_id parameter for callback to generating of ids.
 OK [20240314] skim
