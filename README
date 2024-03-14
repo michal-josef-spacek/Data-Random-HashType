@@ -42,6 +42,11 @@ METHODS
 
 ERRORS
      new():
+             From Mo::utils:
+                     Parameter 'mode_id' must be a bool (0/1).
+                             Value: %s
+                     Parameter 'num_generated' must be greater than %s.
+                             Value: %s
              Parameter 'num_generated' is required.
              Parameter 'possible_hash_types' must be a reference to array.
              Parameter 'possible_hash_types' must contain at least one hash type name.
@@ -94,7 +99,7 @@ EXAMPLE
      # ]
 
 DEPENDENCIES
-    Class::Utils, Data::HashType, Error::Pure, Readonly.
+    Class::Utils, Data::HashType, Error::Pure, Mo::utils, Readonly.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Data-Random-HashType>

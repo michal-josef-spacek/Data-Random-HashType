@@ -20,6 +20,7 @@ readme_from 'HashType.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
 requires 'Data::HashType' => 0;
+requires 'Mo::utils' => 0.25;
 requires 'Readonly' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Data-Random-HashType/issues';
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Data-Random-HashType';

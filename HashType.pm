@@ -6,6 +6,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use Data::HashType;
 use Error::Pure qw(err);
+use Mo::utils 0.25 qw(check_bool check_number_min);
 use Readonly;
 
 Readonly::Array our @OBSOLETE_HASH_TYPES => qw(MD4 MD5 SHA1);
@@ -32,8 +33,8 @@ sub new {
 	# Process parameters.
 	set_params($self, @params);
 
-	# TODO Check mode_id.
-	# TODO Check num_generated.
+	check_bool($self, 'mode_id');
+	check_number_min($self, 'num_generated', 1);
 	if (! defined $self->{'num_generated'}) {
 		err "Parameter 'num_generated' is required.";
 	}
@@ -140,6 +141,11 @@ Returns instance of L<Data::HashType>.
 =head1 ERRORS
 
  new():
+         From Mo::utils:
+                 Parameter 'mode_id' must be a bool (0/1).
+                         Value: %s
+                 Parameter 'num_generated' must be greater than %s.
+                         Value: %s
          Parameter 'num_generated' is required.
          Parameter 'possible_hash_types' must be a reference to array.
          Parameter 'possible_hash_types' must contain at least one hash type name.
@@ -199,6 +205,7 @@ Returns instance of L<Data::HashType>.
 L<Class::Utils>,
 L<Data::HashType>,
 L<Error::Pure>,
+L<Mo::utils>,
 L<Readonly>.
 
 =head1 REPOSITORY

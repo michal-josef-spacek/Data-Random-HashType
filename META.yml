@@ -27,6 +27,7 @@ no_index:
 requires:
   Class::Utils: 0
   Data::HashType: 0
+  Mo::utils: 0.25
   Readonly: 0
   perl: 5.8.0
 resources:
