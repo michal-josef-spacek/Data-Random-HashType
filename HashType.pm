@@ -5,8 +5,10 @@ use warnings;
 
 use Class::Utils qw(set_params);
 use Data::HashType;
+use DateTime;
 use Error::Pure qw(err);
-use Mo::utils 0.25 qw(check_bool check_number_min);
+use Mo::utils 0.25 qw(check_bool check_isa check_number_min check_required);
+use Random::Day::InThePast;
 use Readonly;
 
 Readonly::Array our @OBSOLETE_HASH_TYPES => qw(MD4 MD5 SHA1);
@@ -20,6 +22,13 @@ sub new {
 
 	# Create object.
 	my $self = bless {}, $class;
+
+	# Start date time.
+	$self->{'dt_start'} = DateTime->new(
+		'day' => 1,
+		'month' => 1,
+		'year' => ((localtime)[5] + 1900 - 1),
+	);
 
 	# Id.
 	$self->{'id'} = 1;
@@ -39,6 +48,8 @@ sub new {
 	# Process parameters.
 	set_params($self, @params);
 
+	check_required($self, 'dt_start');
+	check_isa($self, 'dt_start', 'DateTime');
 	check_bool($self, 'mode_id');
 	check_number_min($self, 'num_generated', 1);
 	if (! defined $self->{'num_generated'}) {
@@ -50,6 +61,10 @@ sub new {
 	if (! @{$self->{'possible_hash_types'}}) {
 		err "Parameter 'possible_hash_types' must contain at least one hash type name.";
 	}
+
+	$self->{'_random_valid_from'} = Random::Day::InThePast->new(
+		'dt_from' => $self->{'dt_start'},
+	);
 
 	return $self;
 }
@@ -68,8 +83,8 @@ sub random {
 				$self->{'mode_id'} ? (
 					'id' => $self->{'cb_id'}->($self),
 				) : (),
-				'active' => 1,
 				'name' => $hash_type,
+				'valid_from' => $self->{'_random_valid_from'}->get->clone,
 			);
 		}
 	} else {
@@ -79,8 +94,8 @@ sub random {
 				$self->{'mode_id'} ? (
 					'id' => $self->{'cb_id'}->($self),
 				) : (),
-				'active' => 1,
 				'name' => $hash_type,
+				'valid_from' => $self->{'_random_valid_from'}->get->clone,
 			);
 			$i++;
 		}
@@ -124,6 +139,13 @@ Callback to adding of id.
 
 Default value is subroutine which returns C<$self->{'id'}++>.
 
+=item * C<dt_start>
+
+L<DateTime> object with start date for random valid_from date. Range is dt_start
+and actual date.
+
+Default value is January 1. year ago.
+
 =item * C<id>
 
 Minimal id for adding. Only if C<mode_id> is set to 1.
@@ -164,6 +186,10 @@ Returns instance of L<Data::HashType>.
 
  new():
          From Mo::utils:
+                 Parameter 'dt_start' is required.
+                 Parameter 'dt_start' must be a 'DateTime' object.
+                         Value: %s
+                         Reference: %s
                  Parameter 'mode_id' must be a bool (0/1).
                          Value: %s
                  Parameter 'num_generated' must be greater than %s.
@@ -192,7 +218,7 @@ Returns instance of L<Data::HashType>.
  # Dump hash types to out.
  p @hash_types;
 
- # Output:
+ # Output like:
  # [
  #     [0] Data::HashType  {
  #             parents: Mo::Object
@@ -226,8 +252,10 @@ Returns instance of L<Data::HashType>.
 
 L<Class::Utils>,
 L<Data::HashType>,
+L<DateTime>,
 L<Error::Pure>,
 L<Mo::utils>,
+L<Random::Day>,
 L<Readonly>.
 
 =head1 REPOSITORY

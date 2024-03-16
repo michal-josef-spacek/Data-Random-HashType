@@ -19,6 +19,13 @@ METHODS
 
             Default value is subroutine which returns "$self-"{'id'}++>.
 
+    *       "dt_start"
+
+            DateTime object with start date for random valid_from date.
+            Range is dt_start and actual date.
+
+            Default value is January 1. year ago.
+
     *       "id"
 
             Minimal id for adding. Only if "mode_id" is set to 1.
@@ -55,6 +62,10 @@ METHODS
 ERRORS
      new():
              From Mo::utils:
+                     Parameter 'dt_start' is required.
+                     Parameter 'dt_start' must be a 'DateTime' object.
+                             Value: %s
+                             Reference: %s
                      Parameter 'mode_id' must be a bool (0/1).
                              Value: %s
                      Parameter 'num_generated' must be greater than %s.
@@ -80,7 +91,7 @@ EXAMPLE
      # Dump hash types to out.
      p @hash_types;
 
-     # Output:
+     # Output like:
      # [
      #     [0] Data::HashType  {
      #             parents: Mo::Object
@@ -111,7 +122,8 @@ EXAMPLE
      # ]
 
 DEPENDENCIES
-    Class::Utils, Data::HashType, Error::Pure, Mo::utils, Readonly.
+    Class::Utils, Data::HashType, DateTime, Error::Pure, Mo::utils,
+    Random::Day, Readonly.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Data-Random-HashType>

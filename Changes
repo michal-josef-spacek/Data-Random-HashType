@@ -1,4 +1,5 @@
 0.03
+ - Add support for Data::HashType@0.04.
 
 0.02 2024-03-14T03:00:05+01:00
  - Add 'id' and 'cb_id' parameters.

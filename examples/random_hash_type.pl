@@ -16,7 +16,7 @@ my @hash_types = $obj->random;
 # Dump hash types to out.
 p @hash_types;
 
-# Output:
+# Output like:
 # [
 #     [0] Data::HashType  {
 #             parents: Mo::Object
