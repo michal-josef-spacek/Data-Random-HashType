@@ -1,6 +1,7 @@
 TODO
 ====
-5.
+5. Remove 'active' parameter from Data::HashType.
+6.
 
 Applied
 =======
