@@ -15,7 +15,7 @@ Readonly::Array our @OBSOLETE_HASH_TYPES => qw(MD4 MD5 SHA1);
 Readonly::Array our @DEFAULT_HASH_TYPES => qw(SHA-256 SHA-384 SHA-512);
 Readonly::Array our @ALL_HASH_TYPES => (@OBSOLETE_HASH_TYPES, @DEFAULT_HASH_TYPES);
 
-our $VERSION = 0.05;
+our $VERSION = 0.06;
 
 sub new {
 	my ($class, @params) = @_;
@@ -278,6 +278,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.05
+0.06
 
 =cut
