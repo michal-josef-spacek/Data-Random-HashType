@@ -52,9 +52,7 @@ sub new {
 	check_isa($self, 'dt_start', 'DateTime');
 	check_bool($self, 'mode_id');
 	check_number_min($self, 'num_generated', 1);
-	if (! defined $self->{'num_generated'}) {
-		err "Parameter 'num_generated' is required.";
-	}
+	check_required($self, 'num_generated');
 	if (ref $self->{'possible_hash_types'} ne 'ARRAY') {
 		err "Parameter 'possible_hash_types' must be a reference to array.";
 	}
@@ -194,7 +192,7 @@ Returns instance of L<Data::HashType>.
                          Value: %s
                  Parameter 'num_generated' must be greater than %s.
                          Value: %s
-         Parameter 'num_generated' is required.
+                 Parameter 'num_generated' is required.
          Parameter 'possible_hash_types' must be a reference to array.
          Parameter 'possible_hash_types' must contain at least one hash type name.
 
