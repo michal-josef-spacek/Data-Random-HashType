@@ -1,4 +1,5 @@
 0.04
+ - Add tests for valid_from.
  - Regen documentation and example.
 
 0.03 2024-03-19T13:59:34+01:00
