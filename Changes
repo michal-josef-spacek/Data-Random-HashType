@@ -1,4 +1,5 @@
 0.04
+ - Regen documentation and example.
 
 0.03 2024-03-19T13:59:34+01:00
  - Add support for Data::HashType@0.04.
