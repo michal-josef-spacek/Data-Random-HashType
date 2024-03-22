@@ -27,7 +27,7 @@ no_index:
     - xt
 requires:
   Class::Utils: 0
-  Data::HashType: 0.04
+  Data::HashType: 0.05
   DateTime: 0
   Mo::utils: 0.25
   Random::Day::InThePast: 0

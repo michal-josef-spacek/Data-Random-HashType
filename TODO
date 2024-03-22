@@ -1,7 +1,5 @@
 TODO
 ====
-5. Remove 'active' parameter from Data::HashType.
-6. Regen example in doc after Data::HashType@0.05.
 7.
 
 Applied
@@ -17,3 +15,9 @@ OK [20240314] skim
 
 4. Add cb_id parameter for callback to generating of ids.
 OK [20240314] skim
+
+5. Remove 'active' parameter from Data::HashType.
+OK [20240322] skim
+
+6. Regen example in doc after Data::HashType@0.05.
+OK [20240322] skim

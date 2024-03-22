@@ -19,7 +19,7 @@ perl_version 5.008;
 readme_from 'HashType.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
-requires 'Data::HashType' => 0.04;
+requires 'Data::HashType' => 0.05;
 requires 'DateTime' => 0;
 requires 'Mo::utils' => 0.25;
 requires 'Random::Day::InThePast' => 0;

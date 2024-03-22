@@ -3,7 +3,7 @@ use warnings;
 
 use Data::Random::HashType;
 use DateTime;
-use Test::More 'tests' => 20;
+use Test::More 'tests' => 18;
 use Test::NoWarnings;
 
 # Test.
@@ -12,7 +12,6 @@ my $obj = Data::Random::HashType->new(
 	'possible_hash_types' => ['sha256'],
 );
 my ($ret) = $obj->random;
-is($ret->active, 1, 'Get active flag of hash type (1).');
 is($ret->name, 'sha256', 'Get name of hash type (sha256).');
 isa_ok($ret->valid_from, 'DateTime');
 my $is_valid = DateTime->compare($ret->valid_from, DateTime->now);
@@ -26,7 +25,6 @@ $obj = Data::Random::HashType->new(
 );
 ($ret) = $obj->random;
 isa_ok($ret, 'Data::HashType');
-is($ret->active, 1, 'Get active flag of hash type (1).');
 is($ret->id, 1, 'Get id of hash type (1).');
 is($ret->name, 'sha256', 'Get name of hash type (sha256).');
 isa_ok($ret->valid_from, 'DateTime');

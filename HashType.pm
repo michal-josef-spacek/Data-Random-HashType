@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
-use Data::HashType;
+use Data::HashType 0.05;
 use DateTime;
 use Error::Pure qw(err);
 use Mo::utils 0.25 qw(check_bool check_isa check_number_min check_required);
@@ -222,34 +222,32 @@ Returns instance of L<Data::HashType>.
  # [
  #     [0] Data::HashType  {
  #             parents: Mo::Object
- #             public methods (7):
+ #             public methods (6):
  #                 BUILD
  #                 Error::Pure:
  #                     err
  #                 Mo::utils:
- #                     check_bool, check_isa, check_length, check_number, check_required
+ #                     check_isa, check_length, check_number, check_required
  #             private methods (0)
  #             internals: {
- #                 active       1,
  #                 id           1,
- #                 name         "SHA-256",
- #                 valid_from   2023-04-04T00:00:00 (DateTime)
+ #                 name         "SHA-384",
+ #                 valid_from   2023-03-17T00:00:00 (DateTime)
  #             }
  #         },
  #     [1] Data::HashType  {
  #             parents: Mo::Object
- #             public methods (7):
+ #             public methods (6):
  #                 BUILD
  #                 Error::Pure:
  #                     err
  #                 Mo::utils:
- #                     check_bool, check_isa, check_length, check_number, check_required
+ #                     check_isa, check_length, check_number, check_required
  #             private methods (0)
  #             internals: {
- #                 active       1,
  #                 id           2,
- #                 name         "SHA-384",
- #                 valid_from   2023-09-03T00:00:00 (DateTime)
+ #                 name         "SHA-256",
+ #                 valid_from   2023-01-27T00:00:00 (DateTime)
  #             }
  #         }
  # ]
