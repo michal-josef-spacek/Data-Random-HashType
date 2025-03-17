@@ -75,8 +75,8 @@ sub random {
 
 		my @list = @{$self->{'possible_hash_types'}};
 		foreach my $id (1 .. $self->{'num_generated'}) {
-			my $rand = int(rand(scalar @list - 1));
-			my $hash_type = splice @list, $rand, 1;
+			my $rand_index = int(rand(scalar @list));
+			my $hash_type = splice @list, $rand_index, 1;
 			push @ret, Data::HashType->new(
 				$self->{'mode_id'} ? (
 					'id' => $self->{'cb_id'}->($self),

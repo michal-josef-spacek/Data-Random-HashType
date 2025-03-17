@@ -1,4 +1,5 @@
 0.06
+ - Fix random select of hash type from list.
  - Regen README file.
  - Update copyright years.
 
