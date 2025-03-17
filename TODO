@@ -2,7 +2,8 @@ TODO
 ====
 7. Add DESCRIPTION section to doc.
 8. More hash types.
-9.
+9. Change api to return only one hash type. Remove 'num_generated' parameter.
+10.
 
 Applied
 =======
